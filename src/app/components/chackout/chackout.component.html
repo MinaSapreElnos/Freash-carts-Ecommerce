@@ -1,0 +1,10 @@
+<form [formGroup]="addreasForm" class="m-auto p-5" (ngSubmit)="chackout()">
+
+    <input class="form-control my-3" placeholder="details" formControlName="details" >
+    <input class="form-control my-3" placeholder="phone" formControlName="phone" >
+    <input class="form-control my-3" placeholder="city" formControlName="city">
+
+    <button class="btn btn-success d-block ms-auto fs-5" type="submit">Buy</button>
+
+
+</form>

@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg bg-light fw-bolder">
+    <div class="container">
+      <a class="navbar-brand fw-semibold fs-4">Freash Carts
+        <i class="fas fa-shopping-cart fa-lg p-3 cc"></i>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0"  *ngIf="_AuthServiceService.userToken">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" routerLink="home" routerLinkActive="active" >Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="products" routerLinkActive="active">products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " routerLink="categories" routerLinkActive="active">categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " routerLink="brands" routerLinkActive="active">Brands</a>
+          </li>
+  
+        </ul>
+  
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li>
+            <i class="fa-brands fa-instagram p-1"></i>
+            <i class="fa-brands fa-facebook p-1"></i>
+            <i class="fa-brands fa-twitter p-1"></i>
+            <i class="fa-brands fa-linkedin p-1"></i>
+            <i class="fa-brands fa-youtube p-1"></i>
+        </li>
+        </ul>
+  
+        <ul class="navbar-nav d-flex list-unstyled ">
+          
+          <li class="nav-item" >
+            <a class="nav-link " aria-current="page" routerLink="register" routerLinkActive="active" *ngIf="!_AuthServiceService.userToken" >register</a>
+          </li>
+  
+          <li class="nav-item" >
+            <a class="nav-link " aria-current="page" routerLink="login" routerLinkActive="active" *ngIf="!_AuthServiceService.userToken" >login</a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" *ngIf="_AuthServiceService.userToken" (click)="logOut()">logOut</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" *ngIf="_AuthServiceService.userToken" routerLink="/setting" routerLinkActive="active">setting</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link position-relative"routerLink="cart"routerLinkActive="active" >
+              <i class="fas fa-shopping-cart fa-lg p-3 cc"></i>
+              <span class="badge position-absolute top-0 end-0 bg-main">{{numOfCartItems}}</span>
+            </a>
+          </li>
+        </ul>
+  
+        
+      </div>
+    </div>
+  </nav>

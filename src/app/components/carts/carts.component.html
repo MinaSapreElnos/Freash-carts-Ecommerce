@@ -1,0 +1,29 @@
+<div class="container">
+<div class="d-flex justify-content-around">
+    <h1 class="fw-bold pt-2">Your Carts </h1>
+    <button class="btn btn-outline-danger text-dark fw-bold" (click)="clearItam()">Clear Carts</button>
+</div>
+    <div class="row p-1 shadow-sm py-2"*ngFor="let prodect of cartProducts" >
+       <div class="col-sm-1 g-3">
+        <img [src]="prodect.product.imageCover" alt="" class="w-100">
+       </div>
+       <div class="col-sm-11 g-3">
+        <div class="d-flex justify-content-between align-items-center">
+         <div>
+            <h3>{{prodect.product?.title}}</h3>
+            <p>{{prodect.product?.category.name}}</p>
+            <p>{{prodect.price}}</p>
+            <button class="btn text-danger" (click)="removeItam(prodect.product.id)">Remove</button>
+         </div>
+
+         <div>
+            <button class="btn btn-outline-success" (click)="updateProductCount(prodect.product.id,prodect.count+1);prodect.count=prodect.count+1">+</button>
+            <span class="m-2">{{prodect.count}}</span>
+            <button class="btn btn-outline-danger" (click)="updateProductCount(prodect.product.id,prodect.count-1);prodect.count=prodect.count-1">-</button>
+         </div>
+        </div>
+       </div>
+
+    </div>
+    <button class="btn btn-success my-4 d-block" routerLink="/chackout/{{cartId}}"> chackOut</button>
+</div>

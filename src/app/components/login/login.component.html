@@ -1,0 +1,18 @@
+<div class="container py-3">
+    <form [formGroup]="loginForm" (ngSubmit)=" login()">
+     <label class="my-2 fs-5">email</label>
+     <input class="form-control" type="email" placeholder=" email" formControlName="email">
+     <div class="alert alert-danger" *ngIf=" loginForm.get('email')?.touched &&loginForm.get('email')?.status=='INVALID'">
+         <p *ngIf="loginForm.get('email')?.getError('email')">enter a valid email</p>
+         <p *ngIf="loginForm.get('email')?.getError('required')">email is required</p>
+     </div>
+ 
+     <label class="my-2 fs-5">password</label>
+     <input class="form-control" type="password" placeholder=" password" formControlName="password">
+     <div class="alert alert-danger" *ngIf=" loginForm.get('password')?.touched  &&loginForm.get('password')?.status=='INVALID' " >
+         <p *ngIf="loginForm.get('password')?.getError('required')">enter your password</p>
+         <p *ngIf="loginForm.get('password')?.getError('pattern')">password must be 6 char</p>
+     </div>
+     <button class="btn btn-success mt-3 px-5 ms-auto d-block fs-5">login</button>
+    </form>
+ </div>
